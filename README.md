@@ -6,7 +6,7 @@
     <a href="https://travis-ci.org/uias/Pageboy">
         <img src="https://travis-ci.org/uias/Pageboy.svg?branch=master" />
     </a>
-    <img src="https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat" />
+    <img src="https://img.shields.io/badge/Swift-4-orange.svg?style=flat" />
     <a href="https://cocoapods.org/pods/Pageboy">
         <img src="https://img.shields.io/cocoapods/v/Pageboy.svg" alt="CocoaPods" />
     </a>
@@ -31,7 +31,7 @@
 - [x] Support for custom animated page transitions.
 
 ## 📋 Requirements
-Pageboy requires iOS 9 / tvOS 10; and is written in Swift 4.2.
+Pageboy requires iOS 9 / tvOS 10; and Swift 4.
 
 ## 📲 Installation
 ### CocoaPods
@@ -140,8 +140,8 @@ pageViewController.scrollToPage(.next, animated: true)
 Pageboy provides the ability to insert and delete pages dynamically in the `PageboyViewController`.
 
 ```swift
-pageViewController.insertPage(at index: 0)
-pageViewController.deletePage(at index: 2)
+func insertPage(at index: PageIndex, then updateBehavior: PageUpdateBehavior)
+func deletePage(at index: PageIndex, then updateBehavior: PageUpdateBehavior)
 ```
 
 *This behaves similarly to the insertion of rows in `UITableView`, in the fact that you have to update the data source prior to calling any of the update functions.*
@@ -151,7 +151,7 @@ pageViewController.deletePage(at index: 2)
 ```swift
 let index = 2
 viewControllers.insert(UIViewController(), at: index)
-pageViewController.insertPage(at index: index)
+pageViewController.insertPage(at: index)
 ```
 
 *The default behaviour after inserting or deleting a page is to scroll to the update location, this however can be configured by passing a  `PageUpdateBehavior` value other than `.scrollToUpdate`.*
