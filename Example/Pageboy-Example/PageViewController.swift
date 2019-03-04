@@ -50,17 +50,17 @@ class PageViewController: PageboyViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        showBulletin(makeIntroBulletinManager())
+//        showBulletin(makeIntroBulletinManager())
     }
     
     // MARK: Actions
     
     @objc func nextPage(_ sender: UIBarButtonItem) {
-        scrollToPage(.next, animated: true)
+//        scrollToPage(.next, animated: true)
     }
     
     @objc func previousPage(_ sender: UIBarButtonItem) {
-        scrollToPage(.previous, animated: true)
+//        scrollToPage(.previous, animated: true)
     }
     
     // MARK: Bulletins
@@ -115,9 +115,9 @@ extension PageViewController: PageboyViewControllerDelegate {
                                animated: Bool) {
 //        print("didScrollToPosition: \(position)")
         
-        let relativePosition = navigationOrientation == .vertical ? position.y : position.x
-        gradient?.gradientOffset = relativePosition
-        statusView.currentPosition = relativePosition
+//        let relativePosition = navigationOrientation == .vertical ? position.y : position.x
+//        gradient?.gradientOffset = relativePosition
+//        statusView.currentPosition = relativePosition
         
         updateBarButtonsForCurrentIndex()
     }
@@ -135,7 +135,7 @@ extension PageViewController: PageboyViewControllerDelegate {
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController,
                                didReloadWith currentViewController: UIViewController,
-                               currentPageIndex: PageIndex) {
+                               currentPageIndex: PageboyViewController.PageIndex) {
     }
 }
 

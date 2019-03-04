@@ -1,9 +1,9 @@
 //
 //  PageboyViewControllerDataSource.swift
-//  Pageboy
+//  Pageboy iOS
 //
-//  Created by Merrick Sapsford on 24/11/2017.
-//  Copyright © 2018 UI At Six. All rights reserved.
+//  Created by Merrick Sapsford on 04/03/2019.
+//  Copyright © 2019 UI At Six. All rights reserved.
 //
 
 import UIKit

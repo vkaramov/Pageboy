@@ -28,10 +28,10 @@ extension PageViewController {
     }
     
     func updateBarButtonsForCurrentIndex() {
-        guard let index = self.currentIndex else {
-            return
-        }
-        self.previousBarButton?.isEnabled = index != 0
-        self.nextBarButton?.isEnabled = index != (pageCount ?? 0) - 1
+//        guard let index = self.currentIndex else {
+//            return
+//        }
+//        self.previousBarButton?.isEnabled = index != 0
+//        self.nextBarButton?.isEnabled = index != (pageCount ?? 0) - 1
     }
 }
