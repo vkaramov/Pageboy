@@ -38,6 +38,8 @@ internal final class PagingScrollView: UIScrollView {
     
     private func initialize() {
         addPageContainers()
+        
+        layoutContainers(for: contentOffset)
     }
     
     // MARK: Containers
@@ -51,5 +53,32 @@ internal final class PagingScrollView: UIScrollView {
             containers.append(container)
         }
         self.pageContainers = containers
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        layoutContainers(for: contentOffset)
+    }
+}
+
+extension PagingScrollView {
+    
+    private func layoutContainers(for contentOffset: CGPoint) {
+        guard let pageContainers = pageContainers else {
+            return
+        }
+        
+        let pageSize = bounds.size
+        contentSize = CGSize(width: pageSize.width * CGFloat(pageContainers.count),
+                             height: pageSize.height)
+        
+        for (index, container) in pageContainers.enumerated() {
+            let index = CGFloat(index)
+            container.frame = CGRect(x: index * pageSize.width,
+                                     y: 0.0,
+                                     width: pageSize.width,
+                                     height: pageSize.height)
+        }
     }
 }
