@@ -30,4 +30,7 @@ public protocol PageboyViewControllerDataSource: class {
     /// - Parameter pageboyViewController: The Pageboy view controller
     /// - Returns: Default page
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page?
+    
+    func lastInfiniteIndex() -> PageboyViewController.PageIndex?
+    func firstInfiniteIndex() -> PageboyViewController.PageIndex?
 }

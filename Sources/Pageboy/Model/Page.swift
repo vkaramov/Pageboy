@@ -58,17 +58,17 @@ internal extension Page {
             }
             var proposedIndex = currentIndex + 1
             if pageViewController.isInfiniteScrollEnabled && proposedIndex == pageViewController.pageCount { // scroll back to first index
-                proposedIndex = 0
+                proposedIndex = pageViewController.dataSource?.firstInfiniteIndex() ?? 0
             }
             return proposedIndex
-
+            
         case .previous:
             guard let currentIndex = pageViewController.currentIndex else {
                 return 0
             }
             var proposedIndex = currentIndex - 1
             if pageViewController.isInfiniteScrollEnabled && proposedIndex < 0 { // scroll to last index
-                proposedIndex = (pageViewController.pageCount ?? 1) - 1
+                proposedIndex = pageViewController.dataSource?.lastInfiniteIndex() ?? ((pageViewController.pageCount ?? 1) - 1)
             }
             return proposedIndex
 

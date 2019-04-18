@@ -285,12 +285,12 @@ extension PageboyViewController: UIPageViewControllerDataSource {
         guard let viewControllerCount = viewControllerCount else {
             return nil
         }
-
+        
         if let index = currentIndex {
             if index != 0 {
                 return fetchViewController(at: index - 1)
             } else if isInfiniteScrollEnabled {
-                return fetchViewController(at: viewControllerCount - 1)
+                return fetchViewController(at: dataSource?.lastInfiniteIndex() ?? (viewControllerCount - 1))
             }
         }
         return nil
@@ -301,14 +301,15 @@ extension PageboyViewController: UIPageViewControllerDataSource {
         guard let viewControllerCount = viewControllerCount else {
             return nil
         }
-
+        
         if let index = currentIndex {
             if index != viewControllerCount - 1 {
                 return fetchViewController(at: index + 1)
             } else if isInfiniteScrollEnabled {
-                return fetchViewController(at: 0)
+                return fetchViewController(at: dataSource?.firstInfiniteIndex() ?? 0)
             }
         }
         return nil
     }
 }
+
